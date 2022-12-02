@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public class PresentationBean {
 
-    private Logger logger = LoggerFactory.getLogger(PresentationBean.class);
+    private final Logger logger = LoggerFactory.getLogger(PresentationBean.class);
 
     {
         logger.info("Initialization block");
@@ -14,5 +14,4 @@ public class PresentationBean {
     public PresentationBean() {
         logger.info("Constructor");
     }
-
 }
