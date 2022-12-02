@@ -1,5 +1,7 @@
 package com.griddynamics.tech3camp.bean.lifecycle.presentation;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -45,6 +47,16 @@ public class PresentationComponent implements InitializingBean, DisposableBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         logger.info("afterPropertiesSet: {}", this);
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        logger.info("postConstruct: {}", this);
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        logger.info("preDestroy: {}", this);
     }
 
     @Override
