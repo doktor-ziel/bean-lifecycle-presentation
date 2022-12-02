@@ -2,12 +2,13 @@ package com.griddynamics.tech3camp.bean.lifecycle.presentation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PresentationComponent {
+public class PresentationComponent implements InitializingBean {
 
     private final Logger logger = LoggerFactory.getLogger(PresentationComponent.class);
     @Autowired
@@ -38,5 +39,10 @@ public class PresentationComponent {
                 ", field2='" + field2 + '\'' +
                 ", field3='" + field3 + '\'' +
                 '}';
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        logger.info("afterPropertiesSet: {}", this);
     }
 }
