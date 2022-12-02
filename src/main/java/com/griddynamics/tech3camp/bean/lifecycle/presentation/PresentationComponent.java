@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PresentationComponent implements InitializingBean, DisposableBean {
+public class PresentationComponent implements InitializingBean, DisposableBean, AutoCloseable {
 
     private final Logger logger = LoggerFactory.getLogger(PresentationComponent.class);
     @Autowired
@@ -62,5 +62,10 @@ public class PresentationComponent implements InitializingBean, DisposableBean {
     @Override
     public void destroy() throws Exception {
         logger.info("destroy: {}", this);
+    }
+
+    @Override
+    public void close() throws Exception {
+        logger.info("close: {}", this);
     }
 }
