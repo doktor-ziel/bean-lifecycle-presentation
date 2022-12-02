@@ -65,4 +65,12 @@ public class PresentationBean implements InitializingBean, DisposableBean, AutoC
     public void preDestroy() {
         logger.info("preDestroy");
     }
+
+    public void postProcessBeforeInitialization() {
+        logger.info("postProcessBeforeInitialization");
+    }
+
+    public void postProcessAfterInitialization() {
+        logger.info("postProcessAfterInitialization");
+    }
 }
