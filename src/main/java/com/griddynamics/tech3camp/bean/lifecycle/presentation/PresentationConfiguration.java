@@ -6,6 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PresentationConfiguration {
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
+    public PresentationBean presentationBean() {
+        return new PresentationBean();
+    }
 
     @Bean("value1")
     public String value1(@Value("value-1") String value) {
