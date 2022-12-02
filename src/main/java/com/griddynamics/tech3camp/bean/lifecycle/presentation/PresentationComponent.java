@@ -2,13 +2,14 @@ package com.griddynamics.tech3camp.bean.lifecycle.presentation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PresentationComponent implements InitializingBean {
+public class PresentationComponent implements InitializingBean, DisposableBean {
 
     private final Logger logger = LoggerFactory.getLogger(PresentationComponent.class);
     @Autowired
@@ -44,5 +45,10 @@ public class PresentationComponent implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         logger.info("afterPropertiesSet: {}", this);
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        logger.info("destroy: {}", this);
     }
 }
